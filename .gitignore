@@ -13,4 +13,4 @@ pkg/
 bin/*
 .bundle/*
 
-.Berksfile.lock
+Berksfile.lock

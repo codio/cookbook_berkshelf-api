@@ -1,3 +1,3 @@
-source "http://api.berkshelf.com"
+source "http://berkshelf-api.int.codio.com"
 
 metadata
