@@ -18,7 +18,7 @@
 #
 
 include_recipe "libarchive::default"
-include_recipe "runit"
+
 
 chef_gem "bundler"
 
@@ -51,7 +51,7 @@ libarchive_file "berkshelf-api.tar.gz" do
   group node[:berkshelf_api][:group]
 
   action :extract
-  notifies :restart, "runit_service[berks-api]"
+  notifies :restart, "service[berks-api]"
   only_if { ::File.exist?(asset.asset_path) }
 end
 
@@ -63,7 +63,4 @@ execute "berkshelf-api-bundle-install" do
   not_if "cd #{node[:berkshelf_api][:deploy_path]} && /opt/chef/embedded/bin/bundle check"
 end
 
-runit_service "berks-api" do
-  sv_timeout 30
-  action :enable
-end
+include_recipe "berkshelf-api::upstart"

@@ -1,0 +1,13 @@
+respawn
+
+start on filesystem
+stop on runlevel [06]
+
+env PATH=/opt/chef/embedded/bin:$PATH
+
+setuid <%= node[:berkshelf_api][:owner] %>
+setgid <%= node[:berkshelf_api][:group] %>
+
+chdir <%= node[:berkshelf_api][:deploy_path] %>
+
+exec bundle exec bin/berks-api -p <%= node[:berkshelf_api][:port] %> -c <%= node[:berkshelf_api][:config_path] %>
