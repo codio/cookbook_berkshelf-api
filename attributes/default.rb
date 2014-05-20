@@ -18,7 +18,7 @@
 #
 
 default[:berkshelf_api][:repo]           = "berkshelf/berkshelf-api"
-default[:berkshelf_api][:release]        = "v#{Berkshelf::API::Chef.cookbook_version(run_context)}"
+default[:berkshelf_api][:release]        = "v1.3.1"
 default[:berkshelf_api][:owner]          = "berkshelf"
 default[:berkshelf_api][:group]          = "berkshelf"
 default[:berkshelf_api][:home]           = "/etc/berkshelf/api-server"
