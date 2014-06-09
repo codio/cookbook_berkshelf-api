@@ -8,6 +8,7 @@ version          "1.4.0"
 
 supports "ubuntu"
 
+depends "build-essential", ">= 2.0.2"
 depends "nginx",      ">= 1.7.0"
 depends "libarchive", "~> 0.4"
 depends "github",     "~> 0.2"
