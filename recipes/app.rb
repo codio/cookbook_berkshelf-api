@@ -22,18 +22,19 @@ include_recipe "libarchive::default"
 
 chef_gem "bundler"
 
+group node[:berkshelf_api][:group]
+
+user node[:berkshelf_api][:owner] do
+  gid node[:berkshelf_api][:group]
+  home node[:berkshelf_api][:home]
+  system true
+end
+
 directory node[:berkshelf_api][:home] do
   owner node[:berkshelf_api][:owner]
   group node[:berkshelf_api][:group]
   recursive true
 end
-
-user node[:berkshelf_api][:owner] do
-  home node[:berkshelf_api][:home]
-  system true
-end
-
-group node[:berkshelf_api][:group]
 
 file node[:berkshelf_api][:config_path] do
   content JSON.generate(node[:berkshelf_api][:config].to_hash)

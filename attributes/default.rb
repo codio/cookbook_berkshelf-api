@@ -18,7 +18,7 @@
 #
 
 default[:berkshelf_api][:repo]           = "berkshelf/berkshelf-api"
-default[:berkshelf_api][:release]        = "v1.4.0"
+default[:berkshelf_api][:release]        = "v2.1.0"
 default[:berkshelf_api][:owner]          = "berkshelf"
 default[:berkshelf_api][:group]          = "berkshelf"
 default[:berkshelf_api][:home]           = "/etc/berkshelf/api-server"
